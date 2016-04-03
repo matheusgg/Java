@@ -1,0 +1,5 @@
+# Nao e permitido a utilizacao de tabulacao (\t TAB) dentro de documentos yaml
+config: Teste
+data: 2015-09-13
+teste: 
+ chave: valor

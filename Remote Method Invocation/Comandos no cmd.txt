@@ -1,0 +1,10 @@
+*********************** CMD: ***********************
+
+Gerar o Stub (Auxiliar do Cliente):
+rmic MyRemoteImpl ========> Executa o comando rmic na classe que implementação remota
+
+Iniciar o registro:
+rmiregistry ========> Inicia o registro para registrar serviços remotos
+
+Iniciar o serviço (em outro terminal):
+java MyRemoteImpl ========> Executa a classe de implementação remota para iniciar o serviço

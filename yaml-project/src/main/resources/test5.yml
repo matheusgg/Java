@@ -1,0 +1,25 @@
+# É possivel utilizar tags para identificar o tipo de nó. Existem 2 tipos de tags: Locais (!) e Globais(!!).
+
+# As tags globais (!!) especificam o nome completo do tipo do nó. Ex.: !!br.com.yaml.model.Cliente
+# Já as tags locais (!) especificam o nome simples do tipo do nó, ou seja, um alias. Ex.: !Cliente
+
+# A diferenca entre as tags globais e locais esta na forma como as linguagens e os parsers as interpretam,
+# ou seja, para processar as tags globais, nao é necessario muito esforco, ja para as tags locais,
+# é preciso um processamento extra para identificar o tipo do nó. 
+
+# YAML tags and Java types
+# YAML tag				Java type
+# !!null				null
+# !!bool				Boolean
+# !!int					Integer, Long, BigInteger
+# !!float				Double
+# !!binary				byte[], String
+# !!timestamp			java.util.Date, java.sql.Date, java.sql.Timestamp
+# !!omap, !!pairs		List of Object[]
+# !!set					Set
+# !!str					String
+# !!seq					List
+# !!map					Map
+
+id: !!int 10
+nome: !!str Matheus

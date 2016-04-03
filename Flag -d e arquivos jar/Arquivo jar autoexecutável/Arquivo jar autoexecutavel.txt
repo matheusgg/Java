@@ -1,0 +1,14 @@
+Crie um arquivos "manifest.txt" no diretório classes e insira o nome totalmente qualificado da classe que possui o método main:
+Main-Class: com.testepackage.App
+
+=================================================================================================================================
+Execute o comando:
+jar -cvmf app.jar com ========> Isso irá inserir toda a árvore de diretório com no arquivo .jar
+
+=================================================================================================================================
+Mostrar conteúdo de um arquivo .jar:
+jar -tf app.jar
+
+=================================================================================================================================
+Estrair conteúdo de um arquivo .jar:
+jar -xf app.jar

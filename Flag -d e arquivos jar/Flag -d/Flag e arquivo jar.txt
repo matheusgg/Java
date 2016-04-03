@@ -1,0 +1,13 @@
+javac -d ../classes com/testepackage/App.java ========> Compila o código-fonte App e insere os arquivos de classe na árvore de diretório /classes/com/testepackage
+
+(Obs.: Se a estrutura de diretório de classes não existir, o flag -d irá criá-la)
+=================================================================================================================================
+Crie um arquivos "manifest.txt" para inseriri todos os arquivos de classe em um arquivo .jar:
+Main-Class: App
+
+=================================================================================================================================
+Copie o arquivo "manifest" para o diretório das classes e execute o comando:
+
+jar -cvmf app.jar *.class ========> Isso irá inserir todos os arquivos class no arquivo .jar
+jar -cvmf app.jar App.class ======> Isso irá inserir apenas o arquivo app.class no arquivo .jar
+=================================================================================================================================

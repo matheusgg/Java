@@ -1,0 +1,28 @@
+# Dentro de um mesmo arquivo yml, é possivel existir varios documentos. Cada documento é iniciado por ---, onde o primeiro é opcional
+doc1: Documento 1
+
+---
+doc2: Documento 2
+
+---
+doc3: Documento 3
+
+---
+Warning:
+# Este texto ficara na mesma linha
+  A slightly different error
+  message.
+  
+---
+nomes:
+ - Cosme
+ - Damião
+ 
+---
+# Construindo tipos do Java
+none: [~, null]
+bool: [true, false, on, off]
+int: 42
+float: 3.14159
+list: [LITE, RES_ACID, SUS_DEXT]
+map: {hp: 13, sp: 5}

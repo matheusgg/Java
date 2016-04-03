@@ -1,0 +1,4 @@
+2012-08-05 20:43:47,800 [main]  INFO Principal.java:30 - O método fazAlgo da classe Application possui a anotação @ShowMethod. O valor informado foi 1
+2012-08-05 20:43:47,803 [main]  INFO Principal.java:30 - O método test da classe Application possui a anotação @ShowMethod. O valor informado foi 3
+2012-08-05 20:43:47,803 [main]  INFO Principal.java:30 - O método test da classe Application possui a anotação @ShowMethod. O valor informado foi 3
+2012-08-05 20:43:47,804 [main]  INFO Principal.java:30 - O método test da classe Application possui a anotação @ShowMethod. O valor informado foi 3

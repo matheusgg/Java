@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Arquivo de mensagens da aplicacao -->
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="classpath:<pathToPropertiesFile>" />
+		<property name="defaultEncoding" value="ISO-8859-1" />
+	</bean>
+
+	<!-- Fonte de dados da conexao LDAP -->
+	<bean id="contextSource" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
+		<constructor-arg value="ldap://<server>:<port>/DC=teste,DC=sp" />
+		<property name="userDn" value="usuario@dominio" />
+		<property name="password" value="senha" />
+		<property name="referral" value="follow" />
+	</bean>
+
+	<!-- Filtro de consulta dos usuario do LDAP -->
+	<bean id="userSearch" class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch">
+		<constructor-arg index="0" value="" />
+		<constructor-arg index="1" value="(&amp;(objectClass=user)(sAMAccountName={0}))" />
+		<constructor-arg index="2" ref="contextSource" />
+		<property name="searchSubtree" value="true" />
+		<property name="returningAttributes" value="sAMAccountName,name,department,title" />
+	</bean>
+
+	<!-- LDAP Autenticator Provider -->
+	<bean id="ldapAuthProvider" class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider">
+		<constructor-arg>
+			<bean class="org.springframework.security.ldap.authentication.BindAuthenticator">
+				<constructor-arg ref="contextSource" />
+				<property name="userSearch" ref="userSearch" />
+			</bean>
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator">
+				<constructor-arg ref="contextSource" />
+				<constructor-arg value="" />
+				<property name="groupSearchFilter" value="(&amp;(objectClass=group)(member={0}))" />
+				<property name="groupRoleAttribute" value="cn" />
+				<property name="searchSubtree" value="true" />
+				<property name="ignorePartialResultException" value="true" />
+			</bean>
+		</constructor-arg>
+	</bean>
+</beans>
